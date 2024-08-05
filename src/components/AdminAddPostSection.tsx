@@ -200,14 +200,19 @@ export default function AdminAddPostSection() {
                     onClientUploadComplete={(res) => {
                       // Do something with the response
                       setUrlImage(res[0]?.url ?? "");
-                      console.log("Files: ", res);
-                      alert("Upload Completed");
+                      // console.log("Files: ", res);
+                      // alert("Upload Completed");
                     }}
                     onUploadError={(error: Error) => {
                       // Do something with the error.
                       alert(`ERROR! ${error.message}`);
                     }}
                   />
+                  {urlImage && (
+                    <div>
+                      <p className="text-blue-600">Image upload success</p>
+                    </div>
+                  )}
                 </FormItem>
               )}
             />
