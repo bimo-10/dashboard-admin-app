@@ -3,7 +3,11 @@ import { postSchema } from "~/lib/schema";
 import { db } from "~/server/db";
 
 export async function GET() {
-  const posts = await db.post.findMany();
+  const posts = await db.post.findMany({
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
 
   return NextResponse.json(
     {

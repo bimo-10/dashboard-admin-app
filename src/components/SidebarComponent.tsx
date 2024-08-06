@@ -35,13 +35,13 @@ export function SidebarComponent({ children }: { children: React.ReactNode }) {
         <IconSettings className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-    // {
-    //   label: "Logout",
-    //   href: "#",
-    //   icon: (
-    //     <IconArrowLeft className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
-    //   ),
-    // },
+    {
+      label: "Posts Table",
+      href: "/admin/post-table",
+      icon: (
+        <IconArrowLeft className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
   ];
   const [open, setOpen] = useState(false);
   return (

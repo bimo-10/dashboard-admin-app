@@ -2,8 +2,11 @@ import Link from "next/link";
 import React from "react";
 import { Button, buttonVariants } from "./ui/button";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 export default function Navbar() {
+  const user = auth();
+  console.log(user);
   return (
     <nav className="flex items-center justify-between p-4">
       <Link href="/">
@@ -25,6 +28,13 @@ export default function Navbar() {
             Contact
           </Link>
         </li>
+        {user.userId && (
+          <li>
+            <Link href="admin" className={buttonVariants({ variant: "link" })}>
+              Admin
+            </Link>
+          </li>
+        )}
       </ul>
 
       <div>
