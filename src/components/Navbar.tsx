@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Button, buttonVariants } from "./ui/button";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   return (
@@ -27,9 +28,14 @@ export default function Navbar() {
       </ul>
 
       <div>
-        <Button size="lg" className="bg-blue-600 hover:bg-blue-900">
-          Sign in
-        </Button>
+        <SignedOut>
+          <Button asChild className="text-md bg-blue-600">
+            <Link href="/sign-in">Sign In</Link>
+          </Button>
+        </SignedOut>
+        <SignedIn>
+          <UserButton showName afterSignOutUrl="/sign-in" />
+        </SignedIn>
       </div>
     </nav>
   );
