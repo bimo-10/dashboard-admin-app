@@ -16,7 +16,7 @@ export default function AdminPostCardSection({ posts }: { posts: PostType[] }) {
   require("moment/locale/id");
   moment.locale("id");
   return (
-    <section className="my-20 flex min-h-screen flex-wrap items-center justify-center gap-2">
+    <section className="my-12 flex min-h-screen flex-wrap items-center justify-center gap-2">
       {posts.map((post) => (
         <CardContainer
           key={post.id}
